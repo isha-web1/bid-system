@@ -35,6 +35,25 @@ async function run() {
         const db = client.db('bid_system');
         const productsCollection = db.collection('products');
         const bidsCollection = db.collection('bids');
+        const usersCollection = db.collection('users');
+
+
+
+        app.post('/users', async (req,res) => {
+
+            const email = req.body.email;
+            const query = { email: email };
+            const existingUser = await usersCollection.findOne(query);
+            if(existingUser){
+                return res.send({ message: 'User already exists' });
+            }else{
+               const user = req.body;
+            const result = await usersCollection.insertOne(user);
+            res.send(result);
+            }
+
+            
+        })
 
 
         app.get('/products', async (req,res)=> {
