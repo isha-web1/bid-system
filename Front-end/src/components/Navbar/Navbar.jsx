@@ -63,8 +63,8 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-bold">
-          Smart<span className="text-purple-600 font-bold">Deals</span>
+        <a className="btn btn-ghost text-2xl font-extrabold">
+          Smart<span className="text-purple-600 font-bold-sm text-2xl">Deals</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -72,7 +72,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <a onClick={handleSignOut} className="btn">
+          <a onClick={handleSignOut} className="btn bg-purple-400">
             Sign Out
           </a>
         ) : (
