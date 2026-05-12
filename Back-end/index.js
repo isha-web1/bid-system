@@ -135,9 +135,21 @@ async function run() {
         });
 
 
+
+        
+
+
         app.post('/bids', async (req,res) => {
             const bid = req.body;
             const result = await bidsCollection.insertOne(bid);
+            res.send(result);
+        })
+
+
+        app.delete('/bids/:id', async (req,res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await bidsCollection.deleteOne(query);
             res.send(result);
         })
 
